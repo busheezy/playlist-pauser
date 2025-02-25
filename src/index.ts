@@ -27,3 +27,7 @@ document.addEventListener('touchstart', handleTouchEvent);
 document.addEventListener('touchmove', handleTouchEvent);
 document.addEventListener('touchend', handleTouchEvent);
 document.addEventListener('touchcancel', handleTouchEvent);
+
+window.onload = () => {
+  log('Loaded.');
+};
