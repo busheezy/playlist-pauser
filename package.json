@@ -4,7 +4,7 @@
   "description": "Pause TTV playlist.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsup src/index.ts -d dist",
+    "build": "tsup",
     "start": "node dist/index.js"
   },
   "keywords": [],
