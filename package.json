@@ -1,0 +1,25 @@
+{
+  "name": "playlist-pauser",
+  "version": "1.0.0",
+  "description": "Pause TTV playlist.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsup src/index.ts -d dist",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "BuSheeZy <BuSheeZy@gmail.com>",
+  "license": "ISC",
+  "packageManager": "pnpm@10.4.1",
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@tsconfig/recommended": "^1.0.8",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.1",
+    "globals": "^16.0.0",
+    "prettier": "3.5.2",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.25.0"
+  }
+}
