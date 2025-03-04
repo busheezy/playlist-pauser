@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@telemetrytv/sdk':
-        specifier: 1.0.0
-        version: 1.0.0
+        specifier: 1.0.0-alpha1
+        version: 1.0.0-alpha1
     devDependencies:
       '@eslint/js':
         specifier: ^9.21.0
@@ -382,8 +382,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@telemetrytv/sdk@1.0.0':
-    resolution: {integrity: sha512-ybq4KZPqRLbapg6pclUr+7WBfSPXxM/mmXh28Xe4e9tSKFvDXIJA+J2GspV5ZFw7T57gsxYu3RNsKoOF5JjWXQ==}
+  '@telemetrytv/sdk@1.0.0-alpha1':
+    resolution: {integrity: sha512-ugSHgUzO1DuJ+he4xcoQQ059+abYbSyI4OMCskCpsmnYjiLs2Y8JuE1N5DNVlWXazseMBHfewtwIiJ2rCYo64g==}
 
   '@tsconfig/recommended@1.0.8':
     resolution: {integrity: sha512-TotjFaaXveVUdsrXCdalyF6E5RyG6+7hHHQVZonQtdlk1rJZ1myDIvPUUKPhoYv+JAzThb2lQJh9+9ZfF46hsA==}
@@ -532,11 +532,6 @@ packages:
   consola@3.4.0:
     resolution: {integrity: sha512-EiPU8G6dQG0GFHNR8ljnZFki/8a+cQwEQ+7wpxdChl02Q8HXlwEZWD5lqAF8vC2sEC3Tehr8hy7vErz88LHyUA==}
     engines: {node: ^14.18.0 || >=16.10.0}
-
-  cross-env@7.0.3:
-    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
-    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
-    hasBin: true
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -1316,9 +1311,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.34.8':
     optional: true
 
-  '@telemetrytv/sdk@1.0.0':
-    dependencies:
-      cross-env: 7.0.3
+  '@telemetrytv/sdk@1.0.0-alpha1': {}
 
   '@tsconfig/recommended@1.0.8': {}
 
@@ -1476,10 +1469,6 @@ snapshots:
   concat-map@0.0.1: {}
 
   consola@3.4.0: {}
-
-  cross-env@7.0.3:
-    dependencies:
-      cross-spawn: 7.0.6
 
   cross-spawn@7.0.6:
     dependencies:

@@ -25,6 +25,6 @@
     "typescript-eslint": "^8.25.0"
   },
   "dependencies": {
-    "@telemetrytv/sdk": "1.0.0"
+    "@telemetrytv/sdk": "1.0.0-alpha1"
   }
 }
