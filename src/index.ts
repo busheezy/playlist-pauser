@@ -1,7 +1,11 @@
-import { pause, play, log } from '@telemetrytv/sdk';
+import { pause, play, log as ttvLog } from '@telemetrytv/sdk';
 
 const timeoutTime = 600;
 let timeout: number | null = null;
+
+function log(message: string) {
+  ttvLog(`[Touch Timeout] ${message}`);
+}
 
 function handleTouchEvent() {
   if (timeout) {
