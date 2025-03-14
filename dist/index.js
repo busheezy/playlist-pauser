@@ -167,7 +167,7 @@ function J(n) {
 }
 
 // src/index.ts
-var timeoutTime = 600;
+var timeoutTime = 30;
 var timeout = null;
 function log(message) {
   J(`[Touch Timeout] ${message}`);
@@ -186,10 +186,22 @@ function handleTouchEvent() {
     timeout = null;
   }, timeoutTime);
 }
-window.addEventListener("touchstart", handleTouchEvent);
-window.addEventListener("touchmove", handleTouchEvent);
-window.addEventListener("touchend", handleTouchEvent);
-window.addEventListener("touchcancel", handleTouchEvent);
+document.addEventListener("touchstart", () => {
+  log("Touch started.");
+  handleTouchEvent();
+});
+document.addEventListener("touchmove", () => {
+  log("Touch moved.");
+  handleTouchEvent();
+});
+document.addEventListener("touchend", () => {
+  log("Touch ended.");
+  handleTouchEvent();
+});
+document.addEventListener("touchcancel", () => {
+  log("Touch canceled.");
+  handleTouchEvent();
+});
 window.onload = () => {
   log("Loaded.");
 };
