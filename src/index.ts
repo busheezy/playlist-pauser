@@ -1,6 +1,6 @@
 import { pause, play, log as ttvLog } from '@telemetrytv/sdk';
 
-const timeoutTime = 600;
+const timeoutTime = 30;
 let timeout: number | null = null;
 
 function log(message: string) {
@@ -23,10 +23,25 @@ function handleTouchEvent() {
   }, timeoutTime);
 }
 
-document.addEventListener('touchstart', handleTouchEvent);
-document.addEventListener('touchmove', handleTouchEvent);
-document.addEventListener('touchend', handleTouchEvent);
-document.addEventListener('touchcancel', handleTouchEvent);
+document.addEventListener('touchstart', () => {
+  log('Touch started.');
+  handleTouchEvent();
+});
+
+document.addEventListener('touchmove', () => {
+  log('Touch moved.');
+  handleTouchEvent();
+});
+
+document.addEventListener('touchend', () => {
+  log('Touch ended.');
+  handleTouchEvent();
+});
+
+document.addEventListener('touchcancel', () => {
+  log('Touch canceled.');
+  handleTouchEvent();
+});
 
 window.onload = () => {
   log('Loaded.');
