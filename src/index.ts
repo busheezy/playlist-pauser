@@ -20,7 +20,7 @@ function handleTouchEvent() {
     play();
     log('Resumed after timeout.');
     timeout = null;
-  }, timeoutTime);
+  }, timeoutTime * 1_000);
 }
 
 document.addEventListener('touchstart', () => {

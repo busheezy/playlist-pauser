@@ -184,7 +184,7 @@ function handleTouchEvent() {
     x();
     log("Resumed after timeout.");
     timeout = null;
-  }, timeoutTime);
+  }, timeoutTime * 1e3);
 }
 document.addEventListener("touchstart", () => {
   log("Touch started.");
