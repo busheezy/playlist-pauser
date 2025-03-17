@@ -45,19 +45,22 @@ document.addEventListener('click', () => {
   handleTouchEvent();
 });
 
-document.getElementById('isi-iframe')?.addEventListener('load', function () {
-  const iframe = document.getElementById('isi-iframe') as HTMLIFrameElement;
+const iframes = document.getElementsByTagName('iframe');
 
-  if (!iframe) {
-    return;
-  }
+for (let i = 0; i < iframes.length; i++) {
+  iframes[i].addEventListener('load', function () {
+    const iframeWindow = iframes[i].contentWindow;
 
-  const iframeWindow = iframe.contentWindow;
+    if (!iframeWindow) {
+      return;
+    }
 
-  iframeWindow?.addEventListener('scroll', function () {
-    log('Iframe scrolled.');
+    iframeWindow.addEventListener('scroll', function () {
+      log('Iframe scrolled.');
+      handleTouchEvent();
+    });
   });
-});
+}
 
 window.onload = () => {
   log('Loaded.');

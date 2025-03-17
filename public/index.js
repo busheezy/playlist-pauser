@@ -203,17 +203,19 @@ document.addEventListener("click", () => {
   log("Click.");
   handleTouchEvent();
 });
-var _a;
-(_a = document.getElementById("isi-iframe")) == null ? void 0 : _a.addEventListener("load", function() {
-  const iframe = document.getElementById("isi-iframe");
-  if (!iframe) {
-    return;
-  }
-  const iframeWindow = iframe.contentWindow;
-  iframeWindow == null ? void 0 : iframeWindow.addEventListener("scroll", function() {
-    log("Iframe scrolled.");
+var iframes = document.getElementsByTagName("iframe");
+for (let i = 0; i < iframes.length; i++) {
+  iframes[i].addEventListener("load", function() {
+    const iframeWindow = iframes[i].contentWindow;
+    if (!iframeWindow) {
+      return;
+    }
+    iframeWindow.addEventListener("scroll", function() {
+      log("Iframe scrolled.");
+      handleTouchEvent();
+    });
   });
-});
+}
 window.onload = () => {
   log("Loaded.");
 };
