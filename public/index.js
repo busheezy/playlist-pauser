@@ -167,7 +167,7 @@ function J(n) {
 }
 
 // src/index.ts
-var timeoutTime = 30;
+var timeoutTime = 5;
 var timeout = null;
 function log(message) {
   J(`[Touch Timeout] ${message}`);
@@ -175,14 +175,11 @@ function log(message) {
 function handleTouchEvent() {
   if (timeout) {
     clearTimeout(timeout);
-    log("Reset timeout.");
   } else {
     F();
-    log("Paused due to touch event.");
   }
   timeout = setTimeout(() => {
     x();
-    log("Resumed after timeout.");
     timeout = null;
   }, timeoutTime * 1e3);
 }
@@ -201,6 +198,21 @@ document.addEventListener("touchend", () => {
 document.addEventListener("touchcancel", () => {
   log("Touch canceled.");
   handleTouchEvent();
+});
+document.addEventListener("click", () => {
+  log("Click.");
+  handleTouchEvent();
+});
+var _a;
+(_a = document.getElementById("isi-iframe")) == null ? void 0 : _a.addEventListener("load", function() {
+  const iframe = document.getElementById("isi-iframe");
+  if (!iframe) {
+    return;
+  }
+  const iframeWindow = iframe.contentWindow;
+  iframeWindow == null ? void 0 : iframeWindow.addEventListener("scroll", function() {
+    log("Iframe scrolled.");
+  });
 });
 window.onload = () => {
   log("Loaded.");

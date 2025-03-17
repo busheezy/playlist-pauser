@@ -1,6 +1,6 @@
 import { pause, play, log as ttvLog } from '@telemetrytv/sdk';
 
-const timeoutTime = 30;
+const timeoutTime = 5;
 let timeout: number | null = null;
 
 function log(message: string) {
@@ -10,15 +10,12 @@ function log(message: string) {
 function handleTouchEvent() {
   if (timeout) {
     clearTimeout(timeout);
-    log('Reset timeout.');
   } else {
     pause();
-    log('Paused due to touch event.');
   }
 
   timeout = setTimeout(() => {
     play();
-    log('Resumed after timeout.');
     timeout = null;
   }, timeoutTime * 1_000);
 }
@@ -41,6 +38,25 @@ document.addEventListener('touchend', () => {
 document.addEventListener('touchcancel', () => {
   log('Touch canceled.');
   handleTouchEvent();
+});
+
+document.addEventListener('click', () => {
+  log('Click.');
+  handleTouchEvent();
+});
+
+document.getElementById('isi-iframe')?.addEventListener('load', function () {
+  const iframe = document.getElementById('isi-iframe') as HTMLIFrameElement;
+
+  if (!iframe) {
+    return;
+  }
+
+  const iframeWindow = iframe.contentWindow;
+
+  iframeWindow?.addEventListener('scroll', function () {
+    log('Iframe scrolled.');
+  });
 });
 
 window.onload = () => {

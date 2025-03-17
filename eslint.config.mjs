@@ -11,6 +11,6 @@ export default [
   ...tseslint.configs.recommended,
   eslintConfigPrettier,
   {
-    ignores: ['dist'],
+    ignores: ['public'],
   },
 ];
