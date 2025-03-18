@@ -7,14 +7,16 @@ function log(message: string) {
   ttvLog(`[Touch Timeout] ${message}`);
 }
 
-function handleTouchEvent() {
+function resetPlaylistTimer() {
   if (timeout) {
     clearTimeout(timeout);
   } else {
+    log('pausing');
     pause();
   }
 
   timeout = setTimeout(() => {
+    log('playing');
     play();
     timeout = null;
   }, timeoutTime * 1_000);
@@ -22,27 +24,27 @@ function handleTouchEvent() {
 
 document.addEventListener('touchstart', () => {
   log('Touch started.');
-  handleTouchEvent();
+  resetPlaylistTimer();
 });
 
 document.addEventListener('touchmove', () => {
   log('Touch moved.');
-  handleTouchEvent();
+  resetPlaylistTimer();
 });
 
 document.addEventListener('touchend', () => {
   log('Touch ended.');
-  handleTouchEvent();
+  resetPlaylistTimer();
 });
 
 document.addEventListener('touchcancel', () => {
   log('Touch canceled.');
-  handleTouchEvent();
+  resetPlaylistTimer();
 });
 
 document.addEventListener('click', () => {
   log('Click.');
-  handleTouchEvent();
+  resetPlaylistTimer();
 });
 
 const iframes = document.getElementsByTagName('iframe');
@@ -57,11 +59,12 @@ for (let i = 0; i < iframes.length; i++) {
 
     iframeWindow.addEventListener('scroll', function () {
       log('Iframe scrolled.');
-      handleTouchEvent();
+      resetPlaylistTimer();
     });
   });
 }
 
 window.onload = () => {
   log('Loaded.');
+  resetPlaylistTimer();
 };
