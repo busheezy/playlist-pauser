@@ -64,7 +64,7 @@ for (let i = 0; i < iframes.length; i++) {
   });
 }
 
-window.onload = () => {
+document.onload = () => {
   log('Loaded.');
   resetPlaylistTimer();
 };
